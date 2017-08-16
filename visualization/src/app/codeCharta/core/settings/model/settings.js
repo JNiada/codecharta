@@ -14,8 +14,9 @@ export class Settings {
      * @param {Number} amountOfTopLabels
      * @param {Scale} scaling
      * @param {Scale} camera
+     * @param {CodeMap[]} revisions
      */
-    constructor(map, neutralColorRange, areaMetric, heightMetric, colorMetric, deltas, amountOfTopLabels, scaling, camera) {
+    constructor(map, neutralColorRange, areaMetric, heightMetric, colorMetric, deltas, amountOfTopLabels, scaling, camera, revisions) {
 
         /**
          * currently selected map
@@ -71,6 +72,14 @@ export class Settings {
          */
         this.camera = camera;
 
+        /**
+         * revisions
+         * @type {CodeMap[]}
+         */
+        this.revisions = revisions;
+
+
+
     }
 
     /**
@@ -87,6 +96,7 @@ export class Settings {
         this.amountOfTopLabels = settings.amountOfTopLabels;
         this.scaling = settings.scaling;
         this.camera = settings.camera;
+        this.revisions = settings.revisions;
     }
 
 }

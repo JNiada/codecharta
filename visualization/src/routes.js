@@ -8,12 +8,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('app', {
       url: '/',
-      component: 'hello'
+      component: 'codeCharta'
     });
 
-  $stateProvider
-    .state('hello', {
-      url: '/hello',
-      component: 'hello'
-    });
 }

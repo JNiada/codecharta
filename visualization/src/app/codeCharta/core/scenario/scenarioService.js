@@ -7,13 +7,13 @@ import {Range} from "../settings/model/range.js";
 
 /**
  * Applies and manages scenarios.
- */ 
+ */
 class ScenarioService {
 
     /* ngInject */
 
     /**
-     * @constructor 
+     * @constructor
      * @param {SettingsService} settingsService
      * @param {DataService} dataService
      */
@@ -53,7 +53,7 @@ class ScenarioService {
      */
     getDefaultScenario() {
         let defaultRange = new Range(20,40,false);
-        let defaultSettings = new Settings(this.settingsService.settings.map, defaultRange, "rloc", "mcc", "mcc", false,1, new Scale(1,1,1), new Scale(0,300,1000));
+        let defaultSettings = new Settings(this.settingsService.settings.map, defaultRange, "rloc", "mcc", "mcc", false,1, new Scale(1,1,1), new Scale(0,300,1000), this.settingsService.settings.revisions);
         return new Scenario("rloc/mcc/mcc(20,40)", defaultSettings);
     }
 

@@ -1,38 +1,33 @@
-"use strict";
-
+import angular from "angular";
 import * as THREE from "three";
 
-import "./threeViewer/threeViewer.js";
-import "../core/core.js";
+import {ThreeCameraService} from './threeViewer/threeCameraService';
+import {ThreeOrbitControlsService} from './threeViewer/threeOrbitControlsService';
+import {ThreeRendererService} from './threeViewer/threeRendererService';
+import {ThreeSceneService} from './threeViewer/threeSceneService';
+import {ThreeUpdateCycleService} from './threeViewer/threeUpdateCycleService';
+import {ThreeViewerService} from './threeViewer/threeViewerService';
 
 import {CodeMapDirective} from "./codeMapDirective.js";
 import {CodeMapService} from "./codeMapService.js";
 import {CodeMapAssetService} from "./codeMapAssetService.js";
 import {CodeMapController} from "./codeMapController";
 
-angular.module("app.codeCharta.codeMap",["app.codeCharta.codeMap.threeViewer", "app.codeCharta.core"]);
+import {TreeMapService} from "./treemap/treeMapService";
 
-angular.module("app.codeCharta.codeMap").directive(
-    "codeMapDirective",
-    ["threeViewerService", "codeMapService", (a, b) => new CodeMapDirective(a, b)]
-);
-
-angular.module("app.codeCharta.codeMap").service(
-    "codeMapService",
-    CodeMapService
-);
-
-angular.module("app.codeCharta.codeMap").service(
-    "codeMapAssetService",
-    CodeMapAssetService
-);
-
-angular.module("app.codeCharta.codeMap").controller(
-    "codeMapController",
-    CodeMapController
-);
-
-angular.module("app.codeCharta.codeMap").factory(
+angular.module("app.codeCharta.codeMap",[])
+  .directive("codeMapDirective", ["threeViewerService", "codeMapService", (a, b) => new CodeMapDirective(a, b)])
+  .service("codeMapService", CodeMapService)
+  .service("codeMapAssetService", CodeMapAssetService)
+  .controller("codeMapController", CodeMapController)
+  .service('threeCameraService', ThreeCameraService)
+  .service('threeOrbitControlsService', ThreeOrbitControlsService)
+  .service('threeRendererService', ThreeRendererService)
+  .service('threeSceneService', ThreeSceneService)
+  .service('threeUpdateCycleService', ThreeUpdateCycleService)
+  .service('threeViewerService', ThreeViewerService)
+  .service('treeMapService', TreeMapService)
+  .factory(
     "codeMapMaterialFactory",
     () => {return {
                     positive: () => {return new THREE.MeshLambertMaterial({color: 0x69AE40});},
@@ -46,4 +41,4 @@ angular.module("app.codeCharta.codeMap").factory(
                     negativeDelta: () => {return new THREE.MeshLambertMaterial({color: 0xff0E0E});}
             };}
 
-);
+  );

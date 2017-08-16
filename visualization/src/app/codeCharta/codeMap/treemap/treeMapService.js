@@ -3,19 +3,17 @@
 import * as d3 from "d3";
 
 /**
- * This service transforms valid file data to a custom treemap. Our custom treemap has a 3rd axis added to the nodes. 
+ * This service transforms valid file data to a custom treemap. Our custom treemap has a 3rd axis added to the nodes.
  */
 class TreeMapService {
 
     /* @ngInject */
 
      /**
-     * @constructor 
-     * @param {DataService}
+     * @constructor
      */
-    constructor(dataService) {
-        /** @type {DataService} */
-        this.dataService = dataService;
+    constructor() {
+
     }
 
     /**
@@ -27,8 +25,9 @@ class TreeMapService {
      * @param {number} p padding between treemap squares
      * @param {string} areaKey area metric name
      * @param {string} heightKey height metric name
+     * @param {object[]} revisions revisions array
      */
-    createTreemapNodes(data, w, l, p, areaKey, heightKey){
+    createTreemapNodes(data, w, l, p, areaKey, heightKey, revisions){
 
         let treeMap = d3.treemap()
             .size([w,l])
@@ -45,7 +44,7 @@ class TreeMapService {
 
         let nodes = treeMap(root.sum((node)=>this.getArea(node, areaKey))).descendants();
 
-        let maxHeight = this.getMaxNodeHeightInAllRevisions(heightKey);
+        let maxHeight = this.getMaxNodeHeightInAllRevisions(heightKey, revisions);
         let heightScale = w / maxHeight;
 
         nodes.forEach((node)=>{
@@ -89,12 +88,13 @@ class TreeMapService {
     /**
      * Gets the height of the heighest building in all revisions in order to get a common scaling factor.
      * @param {string} heightKey name of the height metric
+     * @param {object[]} revisions revisions array
      * @returns {number} max height
      */
-    getMaxNodeHeightInAllRevisions(heightKey) {
+    getMaxNodeHeightInAllRevisions(heightKey, revisions) {
         var maxHeight=0;
 
-        this.dataService.data.revisions.forEach((rev)=>{
+        revisions.forEach((rev)=>{
             var nodes = d3.hierarchy(rev).leaves();
             nodes.forEach((node)=>{
                 if(node.data.attributes[heightKey]>maxHeight){
@@ -120,7 +120,7 @@ class TreeMapService {
         }
         return result;
     }
-    
+
 }
 
 export {TreeMapService};
