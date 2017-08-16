@@ -3,7 +3,7 @@
 import * as THREE from "three";
 
 /**
- * This service inits all materials and geo's defined in @link{codeMap.js}.
+ * This service inits all materials and geo's defined in @link{module.js}.
  * This way we have control over material/geo creation and caching.
  */
 class CodeMapAssetService {

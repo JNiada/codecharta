@@ -1,7 +1,7 @@
 "use strict";
 
 import "../../core/core.js";
-import "../../codeMap/codeMap.js";
+import "../../codeMap/module.js";
 
 import {LegendPanelDirective} from "./legendPanelDirective.js";
 import {LegendPanelController} from "./legendPanelController.js";
@@ -13,6 +13,6 @@ angular.module("app.codeCharta.ui.legendPanel").controller(
 );
 
 angular.module("app.codeCharta.ui.legendPanel").directive(
-    "legendPanelDirective", 
+    "legendPanelDirective",
     () => new LegendPanelDirective()
 );

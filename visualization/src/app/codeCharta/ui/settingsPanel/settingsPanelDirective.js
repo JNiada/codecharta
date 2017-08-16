@@ -1,6 +1,6 @@
-"use strict";
-
+import "./settingsPanel.css";
 import {SettingsPanelController} from "./settingsPanelController.js";
+
 /**
  * Renders the settingsPanel
  */
@@ -14,7 +14,7 @@ class SettingsPanelDirective {
          *
          * @type {string}
          */
-        this.templateUrl = "./settingsPanel.html";
+        this.template = require("./settingsPanel.html");
 
         /**
          *
@@ -46,7 +46,7 @@ class SettingsPanelDirective {
          */
         this.bindToController = true;
     }
-    
+
 }
 
 export {SettingsPanelDirective};

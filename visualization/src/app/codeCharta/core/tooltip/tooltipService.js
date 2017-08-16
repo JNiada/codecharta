@@ -9,32 +9,17 @@ class TooltipService {
 
     /**
      * @constructor
-     * @param {UrlService} urlService
      * @param {Scope} $rootScope
      */
-    constructor($rootScope, urlService){
+    constructor($rootScope){
 
         /**
          *
          * @type {Object}
          */
-        this.tooltips = [];
+        this.tooltips = require("./tooltips.json");
 
-        var ctx = this;
-
-        urlService.getFileDataFromFile("tooltips.json").then(
-
-            //resolve
-            (data) => {
-                ctx.tooltips = data;
-                $rootScope.$broadcast("tooltips-changed", this.tooltips);
-            },
-            //reject
-            () => {
-                window.alert("error loading tooltips.json");
-            }
-
-        );
+        $rootScope.$broadcast("tooltips-changed", this.tooltips);
 
     }
 
