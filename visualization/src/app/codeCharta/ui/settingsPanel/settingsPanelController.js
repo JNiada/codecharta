@@ -43,7 +43,7 @@ class SettingsPanelController {
          * @type {Object}
          */
         this.sliderOptions = {
-            ceil: treeMapService.getMaxNodeHeightInAllRevisions(settingsService.settings.heightMetric, settingsService.settings.revisions),
+            ceil: treeMapService.getMaxNodeHeightInAllRevisions(settingsService.settings.heightMetric),
             pushRange: true,
             onChange: ctx.notify.bind(ctx)
         };
@@ -68,7 +68,7 @@ class SettingsPanelController {
      * @param {Settings} settings
      */
     onSettingsChanged(settings) {
-        this.sliderOptions.ceil= this.treeMapService.getMaxNodeHeightInAllRevisions(settings.heightMetric. settings.revisions);
+        this.sliderOptions.ceil= this.treeMapService.getMaxNodeHeightInAllRevisions(settings.heightMetric);
     }
 
     /**

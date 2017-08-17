@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-import './app/codeCharta/module';
+import './app/codeCharta/codeCharta';
 import 'angular-ui-router';
 import routesConfig from './routes';
 

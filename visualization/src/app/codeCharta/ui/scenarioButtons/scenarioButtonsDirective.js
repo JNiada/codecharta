@@ -1,7 +1,5 @@
-"use strict";
-
-import {ScenarioButtonsController} from "./scenarioButtonsController.js";
 import "./scenarioButtons.css";
+import {ScenarioButtonsController} from "./scenarioButtonsController.js";
 
 /**
  * Renders the scenario buttons

@@ -1,55 +1,14 @@
-<!-- This is a the overlaying ui with a higher z value than the map-->
-<div id="ui">
+<fab-bar-directive></fab-bar-directive>
 
-  <a href="https://www.maibornwolff.de" target="_blank" id="logo-link"><img src="./logo.png" alt="MaibornWolff"></a>
-  <h1 id="name"><span>CodeCharta {{$ctrl.version}}</span></h1>
-
-  <div id="actionButtons">
-
-    <file-chooser-directive></file-chooser-directive>
-
-    <md-button class="md-button md-raised md-primary" aria-label="Open Tools" ng-click="$ctrl.toggleSidebar('right')" >
-      Tools
-    </md-button>
-
-  </div>
-
-  <detail-panel-directive></detail-panel-directive>
-
-  <md-sidenav class="md-sidenav-right md-whiteframe-4dp " md-disable-backdrop md-component-id="right">
-
-    <md-toolbar class="md-theme-light">
-      <h1 class="md-toolbar-tools">Toolbox</h1>
-    </md-toolbar>
-    <md-content layout-padding>
-      <form>
-        <md-input-container>
-          <label for="testInput">Test input</label>
-          <input type="text" id="testInput"
-                 ng-model="data" md-autofocus>
-        </md-input-container>
-      </form>
-      <md-button ng-click="$ctrl.toggleSidebar('right')" class="md-primary">
-        Close Toolbox
-      </md-button>
-    </md-content>
-
-  </md-sidenav>
-
-</div>
-<!-- This is a special element which has a low z value  and absolute position so it can stay in the back -->
-
-<code-map-directive layout="fill"></code-map-directive>
-
-<!--
-
-<!--<settings-panel-directive></settings-panel-directive>
+<settings-panel-directive></settings-panel-directive>
 <file-chooser-panel-directive></file-chooser-panel-directive>
 <detail-panel-directive></detail-panel-directive>
 
-
+<header id="title">
+    <a href="https://www.maibornwolff.de" target="_blank"><img src="./logo.png" alt="MaibornWolff"></a>
+    <h1><span>CodeCharta {{ctrl.version}}</span></h1>
+</header>
 
 <code-map-directive></code-map-directive>
 <legend-panel-directive></legend-panel-directive>
-<revision-chooser-directive></revision-chooser-directive>-->
-
+<revision-chooser-directive></revision-chooser-directive>

@@ -5,66 +5,66 @@
  */
 class TooltipService {
 
-    /* @ngInject */
+  /* @ngInject */
+
+  /**
+   * @constructor
+   * @param {Scope} $rootScope
+   */
+  constructor($rootScope) {
 
     /**
-     * @constructor
-     * @param {Scope} $rootScope
+     *
+     * @type {Object}
      */
-    constructor($rootScope){
+    this.tooltips = require("./tooltips.json");
 
-        /**
-         *
-         * @type {Object}
-         */
-        this.tooltips = require("./tooltips.json");
+    $rootScope.$broadcast("tooltips-changed", this.tooltips);
 
-        $rootScope.$broadcast("tooltips-changed", this.tooltips);
+  }
 
-    }
+  /**
+   * returns the tooltip description related to the given key
+   * @param {String} key
+   * @returns {String} the description related to the given key
+   */
+  getTooltipTextByKey(key) {
 
     /**
-     * returns the tooltip description related to the given key
-     * @param {String} key
-     * @returns {String} the description related to the given key
+     * This RegExp describes any set of zero or more
+     * non-whitespace symbols between "_"
+     * @type {RegExp}
      */
-    getTooltipTextByKey(key) {
+    const patt = new RegExp(/_\S*_/);
 
-        /**
-         * This RegExp describes any set of zero or more
-         * non-whitespace symbols between "_"
-         * @type {RegExp}
-         */
-        const patt = new RegExp(/_\S*_/);
+    if (this.tooltips[key]) {
 
-        if( this.tooltips[key] ){
-
-            var res = this.tooltips[key];
+      var res = this.tooltips[key];
 
 
-            /**
-             * Any value between "_" Symbols is substituted by its description
-             */
-            while ( patt.test(res) ) {
-                res = res.replace(/_(.*?)_/, this.replaceString.bind(this));
-            }
-            return res;
+      /**
+       * Any value between "_" Symbols is substituted by its description
+       */
+      while (patt.test(res)) {
+        res = res.replace(/_(.*?)_/, this.replaceString.bind(this));
+      }
+      return res;
 
-        } else {
-            return "no description";
-        }
-
+    } else {
+      return "no description";
     }
 
-    /**
-     * Function used for recursiveness with getTooltipTexByKey
-     * @param {String} match matched string
-     * @param {String} p1 first regex group
-     * @returns {String}
-     */
-    replaceString(match, p1) {
-        return this.getTooltipTextByKey(p1);
-    }
+  }
+
+  /**
+   * Function used for recursiveness with getTooltipTexByKey
+   * @param {String} match matched string
+   * @param {String} p1 first regex group
+   * @returns {String}
+   */
+  replaceString(match, p1) {
+    return this.getTooltipTextByKey(p1);
+  }
 
 }
 

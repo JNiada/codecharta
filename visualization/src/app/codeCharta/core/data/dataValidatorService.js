@@ -2,7 +2,6 @@
 
 import * as Ajv from "ajv";
 import * as d3 from "d3";
-
 /**
  * This service validates the given data against the schema and other validation steps
  */
@@ -12,8 +11,14 @@ class DataValidatorService {
 
   /**
    * @constructor
+   * @external {$http} https://docs.angularjs.org/api/ng/service/$http
    */
-  constructor() {
+  constructor($http) {
+    /**
+     * stores the $http instance
+     * @type {$http}
+     */
+    this.http = $http;
     this.schema = require("./schema.json");
   }
 
@@ -111,16 +116,16 @@ class DataValidatorService {
 
     return new Promise((resolve, reject) => {
 
-      var ajv = Ajv.default();
-      var compare = ajv.compile(ctx.schema);
-      var valid = compare(data);
-      valid &= ctx.uniqueName(data);
+        var ajv = Ajv.default();
+        var compare = ajv.compile(ctx.schema);
+        var valid = compare(data);
+        valid &= ctx.uniqueName(data);
 
-      if (valid) {
-        resolve({valid: true, errors: []});
-      } else {
-        reject({valid: false, errors: compare.errors});
-      }
+        if (valid) {
+          resolve({valid: true, errors: []});
+        } else {
+          reject({valid: false, errors: compare.errors});
+        }
 
     });
 

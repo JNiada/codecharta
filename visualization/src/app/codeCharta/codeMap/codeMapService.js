@@ -16,13 +16,14 @@ class CodeMapService {
      * @param {Scope} $rootScope
      * @param {ThreeSceneService} threeSceneService
      * @param {TreeMapService} treeMapService
-     * @param {object} codeMapAssetService
+     * @param {TreeMapService} codeMapAssetService
+     * @param {TreeMapService} settingsService
      */
-    constructor($rootScope, threeSceneService, treeMapService, codeMapAssetService) {
+    constructor($rootScope, threeSceneService, treeMapService, codeMapAssetService, settingsService) {
 
         /**
          *
-         * @type {object}
+         * @type {TreeMapService}
          */
         this.assetService = codeMapAssetService;
         /**
@@ -35,6 +36,11 @@ class CodeMapService {
          * @type {TreeMapService}
          */
         this.treemapService = treeMapService;
+        /**
+         *
+         * @type {TreeMapService}
+         */
+        this.settingsService = settingsService;
 
         /**
          * the root of the scene graph
@@ -105,8 +111,8 @@ class CodeMapService {
     applySettings(s) {
 
         //draw
-        if (s.areaMetric && s.heightMetric && s.colorMetric && s.map && s.neutralColorRange && s.deltas && s.revisions) {
-            this.drawFromData(s.map, s.areaMetric, s.heightMetric, s.colorMetric, s.neutralColorRange, s.amountOfTopLabels, s.deltas, s.revisions);
+        if (s.areaMetric && s.heightMetric && s.colorMetric && s.map && s.neutralColorRange) {
+            this.drawFromData(s.map, s.areaMetric, s.heightMetric, s.colorMetric, s.neutralColorRange, s.amountOfTopLabels);
         }
 
         //scale
@@ -124,11 +130,9 @@ class CodeMapService {
      * @param {string} colorKey
      * @param {Range} colorConfig
      * @param {number} amountOfTopLabels number of highest buildings with labels
-     * @param {boolean} deltasEnabled true if deltas enabled
-     * @param {object[]} revisions revisions array
      */
-    drawFromData(map, areaKey, heightKey, colorKey, colorConfig, amountOfTopLabels, deltasEnabled, revisions) {
-        this.drawMap(map, 500, 1, areaKey, heightKey, colorKey, colorConfig, amountOfTopLabels, deltasEnabled, revisions);
+    drawFromData(map, areaKey, heightKey, colorKey, colorConfig, amountOfTopLabels) {
+        this.drawMap(map, 500, 1, areaKey, heightKey, colorKey, colorConfig, amountOfTopLabels);
     }
 
     /**
@@ -141,21 +145,19 @@ class CodeMapService {
      * @param {string} colorKey
      * @param {Range} colorConfig
      * @param {number} amountOfTopLabels number of highest buildings with labels
-     * @param {boolean} deltasEnabled true if deltas enabled
-     * @param {object[]} revisions revisions array
      */
-    drawMap(map, s, p, areaKey, heightKey, colorKey, colorConfig, amountOfTopLabels, deltasEnabled, revisions) {
+    drawMap(map, s, p, areaKey, heightKey, colorKey, colorConfig, amountOfTopLabels) {
 
         this.clearScene();
 
         this.addRoot();
 
-        let nodes = this.treemapService.createTreemapNodes(map, s, s, p, areaKey, heightKey, revisions);
+        let nodes = this.treemapService.createTreemapNodes(map, s, s, p, areaKey, heightKey);
 
         let sorted = nodes.sort((a,b)=>{return b.height - a.height;});
 
         sorted.forEach((node,i)=>{
-            this.addNode(node, heightKey, i<amountOfTopLabels, deltasEnabled);
+            this.addNode(node, heightKey, i<amountOfTopLabels);
         });
 
         this.centerMap(s, s);
@@ -251,14 +253,13 @@ class CodeMapService {
      * @param {object} node
      * @param {string} heightKey
      * @param {boolean} showLabel true if the building should get a label
-     * @param {boolean} deltasEnabled true if deltas enabled
      */
-    addNode(node, heightKey, showLabel, deltasEnabled) {
+    addNode(node, heightKey, showLabel) {
         //we need to keep in mind that d3 originally is in 2D, so we need to relabel the axis to match Three.js 3D space
         if (!node.isLeaf) {
             this.addFloor(node.width, node.height, node.length, node.x0, node.z0, node.y0, node.depth, node);
         } else {
-            this.addBuilding(node.width, node.height, node.length, node.x0, node.z0, node.y0, node.deltas && deltasEnabled ? node.deltas[heightKey] : 0, node, heightKey, showLabel);
+            this.addBuilding(node.width, node.height, node.length, node.x0, node.z0, node.y0, node.deltas && this.settingsService.settings.deltas ? node.deltas[heightKey] : 0, node, heightKey, showLabel);
         }
     }
 

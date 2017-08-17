@@ -52,10 +52,18 @@ module.exports = {
             options: {}
           }
         ]
-      }
+      },
+      {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'file-loader'}
+
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.$': 'jquery',
+      'window.jQuery': 'jquery',
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     FailPlugin,

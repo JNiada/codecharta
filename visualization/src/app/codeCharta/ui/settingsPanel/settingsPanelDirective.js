@@ -1,6 +1,5 @@
 import "./settingsPanel.css";
 import {SettingsPanelController} from "./settingsPanelController.js";
-
 /**
  * Renders the settingsPanel
  */

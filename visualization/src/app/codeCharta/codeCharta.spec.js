@@ -1,18 +1,12 @@
-import angular from 'angular';
-import 'angular-mocks';
-import "./module";
+require("./codeCharta.js");
 
-xdescribe("app.codeCharta", function() {
+describe("app.codeCharta", function() {
 
-  beforeEach(() => {
-    angular.mock.module('app.codeCharta');
-  });
+    beforeEach(angular.mock.module("app.codeCharta"));
 
-  it('should render Codecharta', angular.mock.inject(($rootScope, $compile) => {
-    const element = $compile('<cc>Loading...</cc>')($rootScope);
-    $rootScope.$digest();
-    const h1 = element.find('h1');
-    expect(h1.html()).toEqual('CodeCharta');
-  }));
+    it("should be able to mock app.codeCharta module", ()=>{
+        expect(true);
+    });
 
 });
+

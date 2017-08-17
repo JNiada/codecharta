@@ -3,7 +3,7 @@ require("./codeCharta.js");
 /**
  * @test {CodeChartaController}
  */
-xdescribe("app.codeCharta.codeChartaController", function() {
+describe("app.codeCharta.codeChartaController", function() {
 
     var dataService, urlService, settingsService, codeChartaController, $controller, $httpBackend , scenarioService;
 

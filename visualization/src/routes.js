@@ -8,7 +8,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('app', {
       url: '/',
-      component: 'codeCharta'
+      template: require("./app/codeCharta/codeCharta.html"),
+      controller: 'codeChartaController'
     });
 
 }

@@ -1,4 +1,6 @@
-"use strict";
+import $ from "jquery";
+import "materialize-css";
+import "materialize-css/dist/css/materialize.css";
 
 /**
  * Collapsible element. Should be put inside a {@link CollapsibleDirective}.

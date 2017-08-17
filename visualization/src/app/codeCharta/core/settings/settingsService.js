@@ -6,16 +6,16 @@ import {Range} from "./model/range";
 
 /**
  * Stores and manipulates the current settings
- */
+ */ 
 class SettingsService {
 
     /* ngInject */
 
     /**
-     * @constructor
-     * @param {UrlService} urlService
+     * @constructor 
+     * @param {UrlService} urlService 
      * @param {DataService} dataService
-     * @param {Scope} $rootScope
+     * @param {Scope} $rootScope 
      */
     constructor(urlService, dataService, $rootScope) {
 
@@ -48,8 +48,7 @@ class SettingsService {
             true,
             1,
             new Scale(1,1,1),
-            new Scale(0,300,1000),
-            dataService.data.revisions
+            new Scale(0,300,1000)
         );
 
         $rootScope.$on("data-changed", (event,data) => {
@@ -71,7 +70,6 @@ class SettingsService {
     onDataChanged(data) {
 
         this.settings.map = data.currentmap;
-        this.settings.revisions = data.revisions;
 
         if(data.metrics.indexOf(this.settings.areaMetric) === -1){
             //area metric is not set or not in the new metrics and needs to be chosen
@@ -126,7 +124,7 @@ class SettingsService {
 
         var iterateProperties = function(obj,prefix) {
             for(var i in obj) {
-                if(obj.hasOwnProperty(i) && i !== "map" && i !== "revisions" && i !== 0 && i){
+                if(obj.hasOwnProperty(i) && i !== "map" && i !== 0 && i){
 
                     if (typeof obj[i] === "string" || obj[i] instanceof String) {
                         //do not iterate over strings
@@ -169,7 +167,7 @@ class SettingsService {
 
         var iterateProperties = function(obj,prefix) {
             for(var i in obj) {
-                if(obj.hasOwnProperty(i) && i !== "map" && i !== "revisions" && i !== 0 && i){
+                if(obj.hasOwnProperty(i) && i !== "map" && i !== 0 && i){
 
                     if (typeof obj[i] === "string" || obj[i] instanceof String) {
                         //do not iterate over strings

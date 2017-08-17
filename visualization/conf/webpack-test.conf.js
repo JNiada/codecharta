@@ -9,11 +9,11 @@ module.exports = {
         ]
       },
       /*{
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        enforce: 'pre'
-      },*/
+       test: /\.js$/,
+       exclude: /node_modules/,
+       loader: 'eslint-loader',
+       enforce: 'pre'
+       },*/
       {
         test: /\.(css|scss)$/,
         loaders: [
@@ -44,10 +44,17 @@ module.exports = {
             options: {}
           }
         ]
-      }
+      },
+      {test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'file-loader'}
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.$': 'jquery',
+      'window.jQuery': 'jquery',
+    }),
     new webpack.LoaderOptionsPlugin({
       options: {},
       debug: true
