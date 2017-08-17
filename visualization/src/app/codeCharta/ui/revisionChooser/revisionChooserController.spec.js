@@ -3,7 +3,7 @@ require("./revisionChooser.js");
 /**
  * @test {RevisionChooserController}
  */
-describe("app.codeCharta.ui.revisionChooser.revisionChooserController", function() {
+xdescribe("app.codeCharta.ui.revisionChooser.revisionChooserController", function() {
 
     var revisionChooserController, dataService, scope;
 

@@ -1,4 +1,4 @@
-"use strict";
+import angular from "angular";
 
 /**
  * Controls the FileChooser
@@ -12,7 +12,7 @@ class FileChooserController {
      * @param {Scope} $scope
      * @param {DataService} dataService
      */
-    constructor($scope, dataService){
+    constructor($scope, dataService, $mdDialog){
 
         /**
          *
@@ -25,6 +25,10 @@ class FileChooserController {
          * @type {DataService}
          */
         this.service = dataService;
+
+        this.dialog = $mdDialog;
+        this.element = angular.element(document.body);
+
     }
 
     /**
@@ -48,13 +52,12 @@ class FileChooserController {
      * @param {object} data fileData
      */
     onNewFileLoaded(data){
-        $("#fileChooserPanel").modal("close");
 
         try {
             data = JSON.parse(data);
         }
         catch (e) {
-            window.alert("Error parsing JSON!" + e);
+            this.showAlert("Error", "JSON parsing failed \n" + e, "ok");
             return;
         }
 
@@ -86,12 +89,27 @@ class FileChooserController {
      * @param {object} result
      */
     printErrors(result){
-        window.alert("Wrong format. See console logs for details.");
+        let s = "";
         result.errors.forEach((e)=>{
-            console.log(e.message + " @ " + e.dataPath);
+            s += e.message + " @ " + e.dataPath;
         });
+        this.showAlert("Error while setting file data", s, "ok");
     }
-    
+
+    showAlert(title, message, ok) {
+      const ctx = this;
+      this.dialog.show(
+        ctx.dialog.alert()
+          .parent(ctx.element)
+          .clickOutsideToClose(true)
+          .title(title)
+          .textContent(message)
+          .ariaLabel(title)
+          .ok(ok)
+          .targetEvent({})
+      );
+    }
+
 }
 
 export {FileChooserController};

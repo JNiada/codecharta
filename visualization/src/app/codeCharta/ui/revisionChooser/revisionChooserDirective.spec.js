@@ -3,7 +3,7 @@ import {RevisionChooserDirective} from "./revisionChooserDirective.js";
 /**
  * @test {RevisionChooserDirective}
  */
-describe("app.codeCharta.ui.revisionChooser.revisionChooserDirective", function() {
+xdescribe("app.codeCharta.ui.revisionChooser.revisionChooserDirective", function() {
 
     var directive;
 

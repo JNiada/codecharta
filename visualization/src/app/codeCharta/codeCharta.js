@@ -15,12 +15,29 @@ export class CodeChartaController {
    * @param {SettingsService} settingsService
    * @param {ScenarioService} scenarioService
    */
-  constructor(dataService, urlService, settingsService, scenarioService) {
+  constructor(dataService, urlService, settingsService, scenarioService, $mdSidenav, $mdDialog, $element) {
     this.initHandlers();
     this.loadFileOrSample(urlService, dataService, settingsService);
     this.scenarioService = scenarioService;
     this.version = require("../../../package.json").version;
     this.sample = require("./sample.json");
+    this.sidenav = $mdSidenav;
+    this.dialog = $mdDialog;
+    this.element = $element;
+  }
+
+  showAlert(title, message, ok) {
+    const ctx = this;
+    this.dialog.show(
+      ctx.dialog.alert()
+        .parent(ctx.element)
+        .clickOutsideToClose(true)
+        .title(title)
+        .textContent(message)
+        .ariaLabel(title)
+        .ok(ok)
+        .targetEvent({})
+    );
   }
 
   /**
@@ -96,8 +113,11 @@ export class CodeChartaController {
    * @param {Object} errors an errors object
    */
   printErrors(errors){
-    window.alert("Wrong format. See console logs for details.");
-    console.log(errors);
+    this.showAlert("Error", errors, "ok");
+  }
+
+  toggleSidebar(id) {
+    this.sidenav(id).toggle();
   }
 
 }

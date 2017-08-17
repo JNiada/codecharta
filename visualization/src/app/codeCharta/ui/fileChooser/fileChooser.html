@@ -1,10 +1,2 @@
-<div id="{{id}}" class="file-field input-field">
-    <div class="btn">
-        <span>Select file</span>
-        <input type="file" onchange="angular.element(this).scope().ctrl.fileChanged(this)">
-    </div>
-
-    <div class="file-path-wrapper">
-        <input class="file-path" type="text">
-    </div>
-</div>
+<input class="ng-hide" id="input-file-id" multiple type="file" onchange="angular.element(this).scope().ctrl.fileChanged(this)" />
+<label for="input-file-id" class="md-button md-raised md-primary">Load Files</label>

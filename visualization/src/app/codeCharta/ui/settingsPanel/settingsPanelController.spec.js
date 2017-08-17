@@ -3,7 +3,7 @@ require("./settingsPanel.js");
 /**
  * @test {SettingsPanelController}
  */
-describe("app.codeCharta.ui.settingsPanel.settingsPanelController", function() {
+xdescribe("app.codeCharta.ui.settingsPanel.settingsPanelController", function() {
 
     let settingsPanelController, settingsService, dataService, scope;
 

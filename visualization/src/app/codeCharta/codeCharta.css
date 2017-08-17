@@ -1,73 +1,106 @@
-*, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+/*
+This file is all about positioning the blocks of the codecharta. It is not about styling other compnents internally.
+This file also manages pointer event capturing for the blocks.
+ */
 
 html, body {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-size: 1em;
-    cursor: default;
-    color: #5A585A;
-    font-family: Roboto, sans-serif;
-    font-weight: 300;
+  font-size: 1em;
+  color: #5A585A;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
 }
 
-#title {
-    position: fixed;
-    z-index: 10;
-    width: 100%;
+/* Codemap is backgrond and ui is in foreground + making things unclickable/clickable*/
+
+code-map-directive, #ui {
+  position:absolute;
+  z-index: 0;
+  top:0;
+  left:0;
 }
 
-#title > a, img {
-    width: 4em;
-    margin: 0.5em 0 0 1.5em;
+code-map-directive {
+   z-index: 0;
 }
 
-#title > h1 {
-    text-transform: uppercase;
-    font-size: 0.9em;
-    line-height: 1.4em;
-    float: right;
-    margin: 0.5em 1.6em 0 0;
-    color: #5A585A;
-    font-family: Roboto, sans-serif;
-    font-weight: 300;
+#ui {
+  z-index: 10;
+  pointer-events: none;
+  width:100%;
+  height:100%;
+  display:block;
 }
 
-#title > h1:first-child {
-    font-size: 1.82em;
+#ui > * {
+  pointer-events: all;
 }
 
-#title > h1:last-child {
-    font-size: 1.5em;
+/* Logo link */
+#logo-link {
+  position: absolute;
+  top:20px;
+  left:20px;
+  display: block;
+  width: 4em;
+  margin: 0;
+  padding:0;
 }
 
-#codeMap {
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+#logo-link > img{
+  display: block;
+  width: 4em;
+  margin: 0;
+  padding:0;
 }
 
+/* name and version */
+#name {
+  pointer-events: none;
+  display:block;
+  position: absolute;
+  top:20px;
+  right: 20px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  color: #5A585A;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+}
+
+#name:first-child {
+  font-size: 1.82em;
+}
+
+#name:last-child {
+  font-size: 1.5em;
+}
+
+/* action buttons */
 #actionButtons {
-    position: fixed;
-    bottom: 2em;
-    right: 2em;
-    z-index: 1000;
+  position: absolute;
+  right:20px;
+  bottom:20px;
+  display:inline-block;
+  pointer-events: none;
 }
 
-#settingsPanel {
+#actionButtons > * {
+  margin:5px;
+  pointer-events: all;
+}
+
+/* detailPanel positioning */
+detail-panel-directive {
+  display:block;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  pointer-events: none;
+}
+
+
+/*#settingsPanel {
     position: fixed;
     right: 0;
     width: 0px;
@@ -126,4 +159,4 @@ html, body {
 
 .rzslider .rz-bar {
     background: rgb(196,196,196);
-}
+}*/
