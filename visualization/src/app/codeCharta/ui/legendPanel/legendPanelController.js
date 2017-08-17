@@ -1,4 +1,4 @@
-"use strict";
+import $ from "jquery";
 
 class LegendPanelController {
 

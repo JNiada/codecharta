@@ -1,6 +1,7 @@
 "use strict";
 
 import {ScenarioButtonsController} from "./scenarioButtonsController.js";
+import "./scenarioButtons.css";
 
 /**
  * Renders the scenario buttons
@@ -16,7 +17,7 @@ class ScenarioButtonsDirective{
          *
          * @type {string}
          */
-        this.templateUrl = "./scenarioButtons.html";
+        this.template = require("./scenarioButtons.html");
 
         /**
          *

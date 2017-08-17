@@ -10,7 +10,7 @@ class SliderDirective {
      */
     constructor() {
         /** @type {string} **/
-        this.templateUrl = "./slider.html";
+        this.template = require("./slider.html");
 
         /** @type {string} **/
         this.restrict = "E";
@@ -42,7 +42,7 @@ class SliderDirective {
         );
 
     }
-    
+
 }
 
 export {SliderDirective};

@@ -1,5 +1,7 @@
 "use strict";
 
+import "./fabBar.css";
+
 /**
  * Renders the floating action button bar
  */
@@ -14,7 +16,7 @@ class FabBarDirective{
          *
          * @type {string}
          */
-        this.templateUrl = "./fabBar.html";
+        this.template = require("./fabBar.html");
 
         /**
          *

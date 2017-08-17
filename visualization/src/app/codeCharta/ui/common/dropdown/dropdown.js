@@ -1,10 +1,10 @@
 "use strict";
 
-import "../../../core/tooltip/tooltip.js";
+import "../../../core/module";
 import {DropdownDirective} from "./dropdownDirective.js";
 import {DropdownController} from "./dropdownController.js";
 
-angular.module("app.codeCharta.ui.common.dropdown",["app.codeCharta.core.tooltip"]);
+angular.module("app.codeCharta.ui.common.dropdown",["app.codeCharta.core"]);
 
 angular.module("app.codeCharta.ui.common.dropdown").directive(
     "dropdownDirective",

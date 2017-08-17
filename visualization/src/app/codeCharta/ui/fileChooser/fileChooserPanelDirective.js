@@ -1,5 +1,8 @@
 "use strict";
 
+import "./fileChooserPanel.css";
+import $ from "jquery";
+
 /**
  * Renders the file chooser panel
  */
@@ -20,7 +23,7 @@ class FileChooserPanelDirective{
          *
          * @type {string}
          */
-        this.templateUrl = "./fileChooserPanel.html";
+        this.template = require("./fileChooserPanel.html");
 
         /**
          *

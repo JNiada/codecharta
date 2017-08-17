@@ -16,7 +16,7 @@ class LegendPanelDirective{
          *
          * @type {string}
          */
-        this.templateUrl = "./legendPanel.html";
+        this.template = require("./legendPanel.html");
 
         /**
          *
@@ -76,7 +76,7 @@ class LegendPanelDirective{
             this.visible = true;
         }
     }
-    
+
 }
 
 export {LegendPanelDirective};

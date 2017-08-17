@@ -15,7 +15,7 @@ class RevisionChooserDirective {
          *
          * @type {string}
          */
-        this.templateUrl = "./revisionChooser.html";
+        this.template = require("./revisionChooser.html");
 
         /**
          *
@@ -76,7 +76,7 @@ class RevisionChooserDirective {
             this.visible = true;
         }
     }
-    
+
 }
 
 export {RevisionChooserDirective};
