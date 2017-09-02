@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for codeCharta/core/settings/settingsService.spec.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">codeCharta/core/settings</a> settingsService.spec.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>85/85</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>15/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>85/85</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">require("./settings.js");
+&nbsp;
+/**
+ * @test {SettingsService}
+ */
+describe("app.codeCharta.core.settings.settingsService", function() {
+&nbsp;
+    beforeEach(angular.mock.module("app.codeCharta.core.settings"));
+    
+    /**
+     * @test {SettingsService#constructor}
+     */
+    it("should retrieve the angular service instance with enabled delta cubes and no details selected", angular.mock.inject(function(settingsService){
+        expect(settingsService).to.not.equal(undefined);
+        expect(settingsService.settings.deltas).to.equal(true);
+    }));
+&nbsp;
+    /**
+     * @test {SettingsService#getQueryParamString}
+     */
+    it("should retrieve the correct query param strings", angular.mock.inject(function(settingsService){
+        settingsService.settings.areaMetric = "areaStuff";
+        settingsService.settings.camera.x = "2";
+        expect(settingsService.getQueryParamString()).to.include("areaMetric=areaStuff");
+        expect(settingsService.getQueryParamString()).to.include("camera.x=2");
+        expect(settingsService.getQueryParamString()).to.include("neutralColorRange.from=10");
+    }));
+&nbsp;
+    /**
+     * @test {SettingsService#updateSettingsFromUrl}
+     */
+    it("should update settings from url", angular.mock.inject(function(settingsService, $location){
+        $location.url("http://something.de?scaling.x=42&amp;areaMetric=myMetric&amp;scaling.y=0.32");
+        settingsService.updateSettingsFromUrl();
+        expect(settingsService.settings.scaling.x).to.equal(42);
+        expect(settingsService.settings.scaling.y).to.equal(0.32);
+        expect(settingsService.settings.areaMetric).to.equal("myMetric");
+    }));
+&nbsp;
+    /**
+     * @test {SettingsService#updateSettingsFromUrl}
+     */
+    it("should not update settings.map from url", angular.mock.inject(function(settingsService, $location){
+        $location.url("http://something.de?map=aHugeMap");
+        settingsService.settings.map="correctMap";
+        settingsService.updateSettingsFromUrl();
+        expect(settingsService.settings.map).to.equal("correctMap");
+    }));
+&nbsp;
+    /**
+     * @test {SettingsService#onSettingsChanged}
+     * @test {SettingsService#constructor}
+     */
+    it("should react to data-changed events", angular.mock.inject(function(settingsService, $rootScope){
+&nbsp;
+        settingsService.onSettingsChanged = sinon.spy();
+&nbsp;
+        $rootScope.$broadcast("data-changed", {currentmap: {"name":"some map"}, metrics: ["a","b","c"]});
+&nbsp;
+        expect(settingsService.settings.map.name).to.equal("some map");
+        expect(settingsService.settings.areaMetric).to.equal("a");
+        expect(settingsService.settings.heightMetric).to.equal("b");
+        expect(settingsService.settings.colorMetric).to.equal("c");
+&nbsp;
+        $rootScope.$broadcast("data-changed", {currentmap: {"name":"another map"}, metrics: ["a"]});
+&nbsp;
+        expect(settingsService.settings.map.name).to.equal("another map");
+        expect(settingsService.settings.areaMetric).to.equal("a");
+        expect(settingsService.settings.heightMetric).to.equal("a");
+        expect(settingsService.settings.colorMetric).to.equal("a");
+&nbsp;
+        expect(settingsService.onSettingsChanged.calledTwice);
+&nbsp;
+    }));
+&nbsp;
+    /**
+     * @test {SettingsService#onCameraChanged}
+     * @test {SettingsService#constructor}
+     */
+    it("should react to camera-changed events", angular.mock.inject(function(settingsService, $rootScope){
+&nbsp;
+        settingsService.onCameraChanged = sinon.spy();
+&nbsp;
+        $rootScope.$broadcast("camera-changed", {});
+&nbsp;
+        expect(settingsService.onCameraChanged.calledOnce);
+&nbsp;
+    }));
+&nbsp;
+    /**
+     * @test {SettingsService#onCameraChanged}
+     */
+    it("onCameraChanged should update settings object but not call onSettingsChanged to ensure performance", angular.mock.inject(function(settingsService){
+        settingsService.onSettingsChanged = sinon.spy();
+        settingsService.onCameraChanged({position: {x:0, y:0, z: 42}});
+        expect(!settingsService.onSettingsChanged.called);
+        expect(settingsService.settings.camera.z).to.equal(42);
+    }));
+&nbsp;
+&nbsp;
+    /**
+     * @test {SettingsService#onSettingsChanged}
+     * @test {SettingsService#constructor}
+     */
+    it("should react to data-changed events and set metrics correctly", angular.mock.inject(function(settingsService, $rootScope){
+&nbsp;
+        settingsService.onSettingsChanged = sinon.spy();
+&nbsp;
+        $rootScope.$broadcast("data-changed", {currentmap: {"name":"yet another map"}, metrics: ["a", "b"]});
+&nbsp;
+        expect(settingsService.settings.map.name).to.equal("yet another map");
+        expect(settingsService.settings.areaMetric).to.equal("a");
+        expect(settingsService.settings.heightMetric).to.equal("b");
+        expect(settingsService.settings.colorMetric).to.equal("b");
+&nbsp;
+        expect(settingsService.onSettingsChanged.calledOnce);
+&nbsp;
+    }));
+&nbsp;
+    /**
+     * @test {SettingsService#getMetricByIdOrLast}
+     */
+    it("should return last value when id is bigger than or equal to metrics length", angular.mock.inject(function(settingsService, $rootScope){
+&nbsp;
+        var arr = ["a", "b", "c"];
+        var result = settingsService.getMetricByIdOrLast(32, arr);
+        expect(result).to.equal("c");
+&nbsp;
+        result = settingsService.getMetricByIdOrLast(3, arr);
+        expect(result).to.equal("c");
+&nbsp;
+    }));
+&nbsp;
+    /**
+     * @test {SettingsService#getMetricByIdOrLast}
+     */
+    it("should return correct value when id is smaller than metrics length", angular.mock.inject(function(settingsService, $rootScope){
+&nbsp;
+        var arr = ["a", "b", "c"];
+        var result = settingsService.getMetricByIdOrLast(1, arr);
+        expect(result).to.equal("b");
+&nbsp;
+    }));
+&nbsp;
+    /**
+      * @test {SettingsService#getMetricOrDefault}
+      */
+    it("should return defaultValue when metric is not in array", angular.mock.inject(function(settingsService){
+        
+        const arr = ["a", "b", "c"];
+        const name = "lookingForThis";
+        const defaultValue = "default";
+        
+        const result = settingsService.getMetricOrDefault(arr, name, defaultValue);
+        
+        expect(result).to.equal(defaultValue);
+        
+    }));
+    
+    /**
+     * @test {SettingsService#getMetricOrDefault}
+     */
+    it("should return the searched value when metric is in array", angular.mock.inject(function(settingsService){
+                
+        const arr = ["a", "b", "lookingForThis"];
+        const name = "lookingForThis";
+        const defaultValue = "default";
+                
+        const result = settingsService.getMetricOrDefault(arr, name, defaultValue);
+                
+        expect(result).to.equal(name);
+                
+    }));
+    /**
+     * @test {SettingsService#correctSettings}
+     */
+    it("should replace metric with default if metric is not available", angular.mock.inject(function(settingsService, dataService){
+        dataService.data.metrics = ["a", "f", "g", "h"];
+        const settings = {areaMetric:"a", heightMetric:"b", colorMetric:"c"};
+        const expected = {areaMetric: "a", heightMetric:"f", colorMetric:"g"};
+        const result = settingsService.correctSettings(settings);
+        expect(result).to.deep.equal(expected);
+    }));
+    /**
+     * @test {SettingsService#correctSettings}
+     */
+    it("should return input if metrics are available", angular.mock.inject(function(settingsService){
+        const settings = {areaMetric:"a", heightMetric:"b", colorMetric:"c"};
+        const result = settingsService.correctSettings(settings);
+        expect(result).to.deep.equal(settings);
+    }));
+});</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Sep 02 2017 17:20:16 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

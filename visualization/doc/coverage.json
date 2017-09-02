@@ -1,0 +1,288 @@
+{
+  "coverage": "88.94%",
+  "expectCount": 389,
+  "actualCount": 346,
+  "files": {
+    "app/codeCharta/codeMap/codeMapController.js": {
+      "expectCount": 20,
+      "actualCount": 20,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/detailPanel/detailPanelController.js": {
+      "expectCount": 16,
+      "actualCount": 15,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "app/codeCharta/ui/common/collapsibleElement/collapsibleElementDirective.js": {
+      "expectCount": 10,
+      "actualCount": 8,
+      "undocumentLines": [
+        16,
+        17
+      ]
+    },
+    "app/codeCharta/core/data/dataService.js": {
+      "expectCount": 9,
+      "actualCount": 9,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/fileChooser/fileChooserController.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/legendPanel/legendPanelController.js": {
+      "expectCount": 22,
+      "actualCount": 0,
+      "undocumentLines": [
+        9,
+        3,
+        31,
+        33,
+        6,
+        21,
+        52,
+        61,
+        65,
+        75,
+        46,
+        32,
+        8,
+        23,
+        37,
+        36,
+        19,
+        29,
+        22,
+        35,
+        30,
+        38
+      ]
+    },
+    "app/codeCharta/codeMap/threeViewer/threeViewerService.js": {
+      "expectCount": 11,
+      "actualCount": 11,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/common/checkbox/checkboxDirective.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "app/codeCharta/codeChartaController.js": {
+      "expectCount": 7,
+      "actualCount": 6,
+      "undocumentLines": [
+        19
+      ]
+    },
+    "app/codeCharta/codeChartaDirective.js": {
+      "expectCount": 8,
+      "actualCount": 1,
+      "undocumentLines": [
+        16,
+        10,
+        14,
+        15,
+        12,
+        13,
+        11
+      ]
+    },
+    "app/codeCharta/codeMap/codeMapAssetService.js": {
+      "expectCount": 13,
+      "actualCount": 13,
+      "undocumentLines": []
+    },
+    "app/codeCharta/codeMap/codeMapDirective.js": {
+      "expectCount": 11,
+      "actualCount": 11,
+      "undocumentLines": []
+    },
+    "app/codeCharta/codeMap/codeMapService.js": {
+      "expectCount": 30,
+      "actualCount": 29,
+      "undocumentLines": [
+        274
+      ]
+    },
+    "app/codeCharta/ui/common/collapsible/collapsibleDirective.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "app/codeCharta/core/data/model/dataModel.js": {
+      "expectCount": 5,
+      "actualCount": 4,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "app/codeCharta/core/data/dataValidatorService.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/detailPanel/detailPanelDirective.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/common/dropdown/dropdownController.js": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        15
+      ]
+    },
+    "app/codeCharta/ui/common/dropdown/dropdownDirective.js": {
+      "expectCount": 9,
+      "actualCount": 9,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/fabBar/fabBarDirective.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/common/fab/fabDirective.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/fileChooser/fileChooserDirective.js": {
+      "expectCount": 9,
+      "actualCount": 9,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/fileChooser/fileChooserPanelDirective.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/legendPanel/legendPanelDirective.js": {
+      "expectCount": 11,
+      "actualCount": 11,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/common/numberField/numberFieldDirective.js": {
+      "expectCount": 6,
+      "actualCount": 5,
+      "undocumentLines": [
+        8
+      ]
+    },
+    "app/codeCharta/core/settings/model/range.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/revisionChooser/revisionChooserController.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/revisionChooser/revisionChooserDirective.js": {
+      "expectCount": 11,
+      "actualCount": 11,
+      "undocumentLines": []
+    },
+    "app/codeCharta/core/settings/model/scale.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "app/codeCharta/core/scenario/model/scenario.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/scenarioButtons/scenarioButtonsController.js": {
+      "expectCount": 7,
+      "actualCount": 6,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "app/codeCharta/ui/scenarioButtons/scenarioButtonsDirective.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "app/codeCharta/core/scenario/scenarioService.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "app/codeCharta/core/settings/model/settings.js": {
+      "expectCount": 12,
+      "actualCount": 12,
+      "undocumentLines": []
+    },
+    "app/codeCharta/ui/settingsPanel/settingsPanel.js": {
+      "expectCount": 11,
+      "actualCount": 9,
+      "undocumentLines": [
+        88,
+        50
+      ]
+    },
+    "app/codeCharta/core/settings/settingsService.js": {
+      "expectCount": 16,
+      "actualCount": 14,
+      "undocumentLines": [
+        94,
+        153
+      ]
+    },
+    "app/codeCharta/ui/common/slider/sliderDirective.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "app/codeCharta/codeMap/threeViewer/threeCameraService.js": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        45
+      ]
+    },
+    "app/codeCharta/codeMap/threeViewer/threeOrbitControlsService.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "app/codeCharta/codeMap/threeViewer/threeRendererService.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "app/codeCharta/codeMap/threeViewer/threeSceneService.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "app/codeCharta/codeMap/threeViewer/threeUpdateCycleService.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "app/codeCharta/core/tooltip/tooltipService.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "app/codeCharta/core/treemap/treeMapService.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "app/codeCharta/core/url/urlService.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    }
+  }
+}
